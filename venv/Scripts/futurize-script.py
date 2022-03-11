@@ -1,4 +1,4 @@
-#!C:\Users\rkowalewski\rpozpoznaj_nr_dokumentu\venv\Scripts\python.exe
+#!C:\Users\rkowalewski\PycharmProjects\pdf_renamer\venv\Scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'future==0.18.2','console_scripts','futurize'
 import re
 import sys
