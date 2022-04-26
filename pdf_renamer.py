@@ -7,22 +7,23 @@ import shutil
 def get_ext(name):
     with open(name, 'rb') as f:
         doc = slate3k.PDF(f)
-        dlv = 'DLV[\d]{5}'
+        dlv = r'(DLV|LONTL)\d{5}'
         result = re.search(dlv, doc[0])
         if result:
             return result.group(0)
-        lontl = 'LONTL[\d]{5}'
-        result = re.search(lontl, doc[0])
-        if result:
-            return result.group(0)
-        return None
+
+
+def file_name_trim(name):
+    pattern = r'(DLI-E2|ISF)-\d{8}'
+    if result := re.search(pattern, name):
+        return result.group(0)
 
 
 if __name__ == '__main__':
     dirs = os.listdir()
     for file in dirs:
         if re.match('.+.pdf', file):
-            extension = get_ext(file)
-            if extension:
-                shutil.copy(file, f"{file.replace('.pdf','_')}{extension}.pdf")
+            if prefix := file_name_trim(file):
+                if extension := get_ext(file):
+                    shutil.copy(file, f"{prefix}-{extension}.pdf")
 
