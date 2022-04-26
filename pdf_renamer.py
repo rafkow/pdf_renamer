@@ -25,5 +25,7 @@ if __name__ == '__main__':
         if re.match('.+.pdf', file):
             if prefix := file_name_trim(file):
                 if extension := get_ext(file):
-                    shutil.copy(file, f"{prefix}-{extension}.pdf")
+                    new_name = f"{prefix}-{extension}.pdf"
+                    if not os.path.exists(new_name):
+                        shutil.copy(file, new_name)
 
