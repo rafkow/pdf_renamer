@@ -14,7 +14,7 @@ def get_ext(name):
 
 
 def file_name_trim(name):
-    pattern = r'(DTI-E2|ISF)-(XH-)?\d{8}'
+    pattern = r'(DTI-E\d|ISF)-(XH-)?\d{8}'
     if result := re.search(pattern, name):
         return result.group(0)
 
