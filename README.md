@@ -20,7 +20,10 @@ def handle_error(exctype, msg, strict=STRICT):
 
 
 ## Vession
-- 2.3 - 
+- 2.4
+  - change lib to read PDF
+  - reduce access to system resources
+- 2.3
   - recognize extensions DTI-E2, DTI-E8, DTI-E2-XH, ISF
 - 2.2 
   - change word order
