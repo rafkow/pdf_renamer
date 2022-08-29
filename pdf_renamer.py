@@ -27,8 +27,8 @@ if __name__ == '__main__':
                 try:
                     with open(file, 'rb') as f:
                         doc = PdfFileReader(f)
-                        text = doc.getPage(0).extractText()
-                        if extension := get_extension(file):
+                        pdf_content = doc.getPage(0).extractText()
+                        if extension := get_extension(pdf_content):
                             new_name = f"{prefix}-{extension}.pdf"
                             if not path.exists(new_name):
                                 copy(file, new_name)
